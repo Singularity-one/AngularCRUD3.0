@@ -108,8 +108,6 @@ export class CustomerService {
 
   public delet(customerId : String){
 
-    
-
     let userJSON = {
       'header': {
         'msgId': '1',
