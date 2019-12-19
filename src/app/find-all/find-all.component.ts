@@ -66,53 +66,23 @@ export class FindAllComponent implements OnInit {
 
   deleteCustomer(customerId:string){
     console.log(customerId);
-    this.delet(customerId);
-  }
-
-  delet(customerId){
-    let customerIdStr = customerId;
-
-    let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        "customerId": customerId
+    this.customerService.delet(customerId).subscribe(
+      res => {
+       console.log(res);
+        if(res['success']){
+          console.log("success");
+        }
+        const returnText = res['body'].returnCode;
+        if('0000'=== returnText){
+         console.log("刪除成功");
+         this.ngOnInit();//重新載入刷新頁面
+        }
+      },errRes =>{
+        console.log(errRes);
       }
-    };
-
-     // 透過 JSON.parse() 解析 JSON 字串
-     let user = JSON.stringify(userJSON);
-     var newstr = user
-
-     console.log(
-      "newstr"+newstr
-     );
-
-     var objJsonArray =JSON.parse(newstr);
-
-     this.http.post('http://localhost:8080/customer/deleteBySQL',objJsonArray
-     ,this._headers).subscribe(
-                  res => {
-                   console.log(res);
-                    if(res['success']){
-                      console.log("success");
-                    }
-                    const returnText = res['body'].returnCode;
-                    if('0000'=== returnText){
-                     console.log("登入成功");
-                     this.ngOnInit();//重新載入刷新頁面
-                     //this.router.navigate(['home']); // <-- 導向HomeComponent
-                    }
-                  },errRes =>{
-                    console.log(errRes);
-                  }
-                );
+    );
+     console.log("進入這頁面時發生");
 
   }
-
 
 }
