@@ -14,10 +14,6 @@ export class CustomerDetailsComponent implements OnInit {
 
   private headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   customerId: string;
-  name: string;
-  addr: string;
-  age: string;
-  tel: string;
   customers: Customer[];
   submitted = false;
 

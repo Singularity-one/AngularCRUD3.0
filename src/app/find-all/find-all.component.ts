@@ -22,10 +22,6 @@ export class FindAllComponent implements OnInit {
 
   private _headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   customerId: string;
-  name: string;
-  addr: string;
-  age: string;
-  tel: string;
   customers: Customer[];
 
   constructor(private router:Router, private customerService: CustomerService,private http:HttpClient) { }
