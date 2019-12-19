@@ -39,11 +39,6 @@ export class FindAllComponent implements OnInit {
        if('0000'=== returnText){
         console.log("讀入全部資料");
         const body = data['body'];
-        this.customerId =body.customerId;
-        this.name =body.name;
-        this.addr =body.addr;
-        this.age =body.age;
-        this.tel =body.tel;
         this.customers = body.dataList;
        }
      })
