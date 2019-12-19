@@ -22,7 +22,7 @@ export class CustomerDetailsComponent implements OnInit {
   submitted = false;
 
   constructor(private router:Router, private customerService: CustomerService,private http:HttpClient) {
-      console.log("這是修改頁面");
+      console.log("這是單筆資料頁面");
   }
 
  protected scustomeridSQLid2: string[] = [];
