@@ -14,6 +14,10 @@ export class CustomerService {
   customer: Customer;
 
   customerId: string;
+  name: string;
+  addr: string;
+  age: string;
+  tel: string;
   customers: Customer[];
 
   private headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
@@ -66,6 +70,38 @@ export class CustomerService {
 
     return this.http.post('http://localhost:8080/customer/findSQL',objJsonArray
     ,this.headers)
+  }
+
+  createcustomer(name,addr,age,tel){
+
+    let userJSON = {
+      'header': {
+        'msgId': '1',
+        'txnSeq': '2',
+        'branchId': '3',
+        'clientIp': '4'
+      },
+      'body': {
+        'name': name,
+        'addr': addr,
+        'age': age,
+        'tel': tel,
+      }
+    };
+
+    // 透過 JSON.parse() 解析 JSON 字串
+    let user = JSON.stringify(userJSON);
+    var newstr = user
+
+    console.log(
+     "newstr"+newstr
+    );
+
+    var objJsonArray =JSON.parse(newstr);
+
+    return this.http.post('http://localhost:8080/customer/save2',objJsonArray
+    ,this.headers)
+
   }
 
 

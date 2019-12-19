@@ -38,56 +38,24 @@ export class CreatecustomerComponent implements OnInit {
   onSubmit(name: string,addr: string,age: string,tel: string) {
     console.log("createcustomer");
     this.submitted = true;
-    this.createcustomer(this.nameId.nativeElement.value,
-      this.addrId.nativeElement.value,
-      this.ageId.nativeElement.value,
-      this.telId.nativeElement.value
-      );
+
+      this.customerService.createcustomer(this.nameId.nativeElement.value,
+        this.addrId.nativeElement.value,
+        this.ageId.nativeElement.value,
+        this.telId.nativeElement.value).subscribe(
+          res => {
+           console.log(res);
+           const returnText = res['body'].returnCode;
+            
+           if('0000'=== returnText){
+             console.log("創建成功");
+             this.router.navigate(['find-all']); // <-- 導向FindAllComponent
+            }
+          },errRes =>{
+            console.log(errRes);
+          }
+        );
   }
      
-  createcustomer(name,addr,age,tel){
-
-     let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        'name': name,
-        'addr': addr,
-        'age': age,
-        'tel': tel,
-      }
-    };
-
-    // 透過 JSON.parse() 解析 JSON 字串
-    let user = JSON.stringify(userJSON);
-    var newstr = user
-
-    console.log(
-     "newstr"+newstr
-    );
-
-    var objJsonArray =JSON.parse(newstr);
-
-     this.http.post('http://localhost:8080/customer/save2',objJsonArray
-    ,this.headers).subscribe(
-                 res => {
-                  console.log(res);
-                  const returnText = res['body'].returnCode;
-                   
-                  if('0000'=== returnText){
-                    console.log("創建成功");
-                    this.router.navigate(['find-all']); // <-- 導向FindAllComponent
-                   }
-                 },errRes =>{
-                   console.log(errRes);
-                 }
-               );
-  }
-
-
 
 }
