@@ -14,10 +14,26 @@ export class CustomerService {
   customer: Customer;
 
   customerId: string;
+  name: string;
   addr: string;
   age: string;
   tel: string;
   customers: Customer[];
+
+  json: any={
+              "header": {
+                  "msgId": "1",
+                  "txnSeq": "2",
+                  "branchId": "3",
+                  "clientIp": "4"
+              },"body": {
+                  "customerId": this.customerId,
+                  "name": this.name,
+                  "addr": this.addr,
+                  "age": this.age,
+                  "tel": this.tel     
+                }
+              };
 
   private headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   
