@@ -41,7 +41,7 @@ export class CustomerService {
   }
 
   findOne(customerId : String){
-    let customerIdStr = customerId;
+    
     let userJSON = {
       'header': {
         'msgId': '1',
@@ -72,7 +72,7 @@ export class CustomerService {
 
   public delet(customerId : String){
 
-    let customerIdStr = customerId;
+    
 
     let userJSON = {
       'header': {
