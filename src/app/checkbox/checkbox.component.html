@@ -1,0 +1,60 @@
+<p>
+  checkbox works!
+</p>
+
+<h3>Create Merchant</h3>
+
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit(nameForm)" #nameForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name(WILLIE)</label>
+      <input type="text" class="form-control"  #nameInput name="name" required [(ngModel)]="name" placeholder="輸入name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Tel(XXXX)</label>
+      <input type="text" class="form-control"  #telInput name="tel" required [(ngModel)]="tel" placeholder="輸入tel">
+    </div>
+
+  <h3>checkbox多選</h3>
+  <div class="form-group">
+    <label for="name">複選:</label>
+    <label for="name">地球</label>
+    <input type="checkbox" #addrEarth name="earth" [(ngModel)]="earth">
+    <label for="name">金星</label>
+    <input type="checkbox" #addrVenus name="venus" [(ngModel)]="venus">
+    <label for="name">火星</label>
+    <input type="checkbox" #addrMars name="mars" [(ngModel)]="mars">
+  </div>
+
+  <h3>checkbox單選</h3>
+  <div class="form-group">
+    <label for="name">單選:</label>
+    <label for="name">地球</label>
+    <input type="checkbox" #addrEarth name="earth2" [(ngModel)]="earth2" (click)="onlyOne()">
+    <label for="name">金星</label>
+    <input type="checkbox" #addrVenus name="venus2" [(ngModel)]="venus2" (click)="onlyOne()">
+    <label for="name">火星</label>
+    <input type="checkbox" #addrMars name="mars2" [(ngModel)]="mars2" (click)="onlyOne()">
+  </div>
+
+  <h3>radio單選</h3>
+  <div class="form-group">
+    <input type="radio" name="addrs" (click)="addr='earth'">earth
+    <input type="radio" name="addrs" (click)="addr='venus'">venus
+    <input type="radio" name="addrs" (click)="addr='mars'">mars
+  </div>
+
+    {{nameForm.value | json}}
+    <button type="submit" class="btn btn-success">送出</button>
+  </form>
+</div>
+
+<!-- 點擊後秀出全部 -->
+<li><a (click)="showAddr()">showAddr</a></li>
+<div *ngIf="show"> 
+  {{addr}}
+</div>
+
+<!-- 清除全部 -->
+<li><a (click)="clear()">clear</a></li>

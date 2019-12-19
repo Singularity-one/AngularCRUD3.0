@@ -1,0 +1,20 @@
+<p>
+  angular-updata works!
+</p>
+
+<div *ngIf="show"> 
+<img [src]="user_photo">
+</div>
+
+<hr>
+
+<p>Input one</p>
+<input (change)="picked($event,1)" type="file">
+<br>
+<hr>
+<button class="butoncus_sig" id="dnext" (click)="addPictures()">Submit</button>
+<hr>
+
+<div *ngIf="showview"> 
+  <img [src]="user_photo">
+</div>

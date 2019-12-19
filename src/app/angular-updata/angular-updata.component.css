@@ -1,0 +1,10 @@
+/* 給拖曳區畫個框線 */
+#dragArea {
+    width:200px;
+    border-style:dashed;
+    border-width:0.2em;
+    height:200px;
+}
+h4 {
+    margin:20px auto 10px;
+}
