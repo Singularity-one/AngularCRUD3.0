@@ -14,7 +14,6 @@ export class CustomerService {
   customer: Customer;
 
   customerId: string;
-  name: string;
   addr: string;
   age: string;
   tel: string;
