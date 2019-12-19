@@ -44,6 +44,35 @@ export class CustomerService {
     this.messages = [];
   }
 
+  findOne(customerId : String){
+    let customerIdStr = customerId;
+    let userJSON = {
+      'header': {
+        'msgId': '1',
+        'txnSeq': '2',
+        'branchId': '3',
+        'clientIp': '4'
+      },
+      'body': {
+        "customerId": customerId
+      }
+    };
+
+       // 透過 JSON.parse() 解析 JSON 字串
+       let user = JSON.stringify(userJSON);
+       var newstr = user
+  
+       console.log(
+        "newstr"+newstr
+       );
+  
+       var objJsonArray =JSON.parse(newstr);
+
+    return this.http.post('http://localhost:8080/customer/findSQL',objJsonArray
+    ,this.headers)
+  }
+
+
 
   public delet(customerId : String){
 
