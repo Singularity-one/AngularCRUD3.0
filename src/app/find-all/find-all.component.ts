@@ -15,8 +15,6 @@ import { stringify } from 'querystring';
 })
 export class FindAllComponent implements OnInit {
 
-  // [x: string]: any;  不明
-
   @ViewChild('nameInput') nameId: ElementRef;
   @ViewChild('addrInput') addrId: ElementRef;
   @ViewChild('ageInput') ageId: ElementRef;
