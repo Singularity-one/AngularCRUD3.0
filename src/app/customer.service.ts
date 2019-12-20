@@ -14,10 +14,10 @@ export class CustomerService {
   customer: Customer;
 
   customerId: String;
-  name: string;
-  addr: string;
-  age: string;
-  tel: string;
+  name: String;
+  addr: String;
+  age: String;
+  tel: String;
   customers: Customer[];
 
   json: any={
@@ -45,7 +45,6 @@ export class CustomerService {
 
   public getCustomerByName(name : String){
     return this.http.get<Customer[]>('http://localhost:8080/customer/findByName');
-    //return this.http.post<Customer[]>('http://localhost:8080/customer/findByName',JSON.stringify(),);
   }
 
 
@@ -72,8 +71,7 @@ export class CustomerService {
   
        var objJsonArray =JSON.parse(newstr);
 
-    return this.http.post('http://localhost:8080/customer/findSQL',objJsonArray
-    ,this.headers)
+    return this.http.post('http://localhost:8080/customer/findSQL',objJsonArray,this.headers)
   }
 
   public createcustomer(name,addr,age,tel){
@@ -92,8 +90,7 @@ export class CustomerService {
 
     var objJsonArray =JSON.parse(newstr);
 
-    return this.http.post('http://localhost:8080/customer/save2',objJsonArray
-    ,this.headers)
+    return this.http.post('http://localhost:8080/customer/save2',objJsonArray,this.headers)
 
   }
 
@@ -106,17 +103,15 @@ export class CustomerService {
     this.json["body"]["age"]=age;
     this.json["body"]["tel"]=tel;
 
-
-       // 透過 JSON.parse() 解析 JSON 字串
-       let user = JSON.stringify(this.json);
-       var newstr = user
+    // 透過 JSON.parse() 解析 JSON 字串
+    let user = JSON.stringify(this.json);
+    var newstr = user
   
-       console.log("newstr"+newstr);
+    console.log("newstr"+newstr);
   
-       var objJsonArray =JSON.parse(newstr);
+    var objJsonArray =JSON.parse(newstr);
 
-    return this.http.post('http://localhost:8080/customer/updata2',objJsonArray
-    ,this.headers);
+    return this.http.post('http://localhost:8080/customer/updata2',objJsonArray,this.headers);
 
   }
 
@@ -127,16 +122,15 @@ export class CustomerService {
     console.log("delet拿到"+customerId);
     this.json["body"]["customerId"]=customerId;//給值
 
-     // 透過 JSON.parse() 解析 JSON 字串
-     let user = JSON.stringify(this.json);
-     var newstr = user
+    // 透過 JSON.parse() 解析 JSON 字串
+    let user = JSON.stringify(this.json);
+    var newstr = user
 
-     console.log("newstr"+newstr);
+    console.log("newstr"+newstr);
 
-     var objJsonArray =JSON.parse(newstr);
+    var objJsonArray =JSON.parse(newstr);
 
-    return this.http.post('http://localhost:8080/customer/deleteBySQL',objJsonArray
-    ,this.headers);
+    return this.http.post('http://localhost:8080/customer/deleteBySQL',objJsonArray,this.headers);
     
   }
 
