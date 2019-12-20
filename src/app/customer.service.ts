@@ -140,5 +140,24 @@ export class CustomerService {
     
   }
 
+  public login(name: string,tel: string){
+
+    console.log("login拿到"+name+"電話"+tel);
+
+    this.json["body"]["name"]=name;//給值
+    this.json["body"]["tel"]=tel;
+
+     // 透過 JSON.parse() 解析 JSON 字串
+     let user = JSON.stringify(this.json);
+     var newstr = user
+
+     console.log("newstr"+newstr);
+
+     var objJsonArray =JSON.parse(newstr);
+
+     return this.http.post('http://localhost:8080/login',objJsonArray
+    ,this.headers);
+  }
+
 
 }
