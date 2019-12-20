@@ -13,7 +13,7 @@ export class CustomerService {
 
   customer: Customer;
 
-  customerId: string;
+  customerId: String;
   name: string;
   addr: string;
   age: string;
@@ -61,20 +61,11 @@ export class CustomerService {
 
   public findOne(customerId : String){
     
-    let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        "customerId": customerId
-      }
-    };
-
+    console.log("findOne拿到"+customerId);
+    this.json["body"]["customerId"]=customerId;//給值
+    
        // 透過 JSON.parse() 解析 JSON 字串
-       let user = JSON.stringify(userJSON);
+       let user = JSON.stringify(this.json);
        var newstr = user
   
        console.log(
