@@ -68,9 +68,7 @@ export class CustomerService {
        let user = JSON.stringify(this.json);
        var newstr = user
   
-       console.log(
-        "newstr"+newstr
-       );
+       console.log("newstr"+newstr);
   
        var objJsonArray =JSON.parse(newstr);
 
@@ -90,9 +88,7 @@ export class CustomerService {
     let user = JSON.stringify(this.json);
     var newstr = user
 
-    console.log(
-     "newstr"+newstr
-    );
+    console.log("newstr"+newstr);
 
     var objJsonArray =JSON.parse(newstr);
 
@@ -131,14 +127,11 @@ export class CustomerService {
     console.log("delet拿到"+customerId);
     this.json["body"]["customerId"]=customerId;//給值
 
-    
      // 透過 JSON.parse() 解析 JSON 字串
      let user = JSON.stringify(this.json);
      var newstr = user
 
-     console.log(
-      "newstr"+newstr
-     );
+     console.log("newstr"+newstr);
 
      var objJsonArray =JSON.parse(newstr);
 
