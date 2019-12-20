@@ -63,7 +63,7 @@ export class CustomerService {
     
     console.log("findOne拿到"+customerId);
     this.json["body"]["customerId"]=customerId;//給值
-    
+
        // 透過 JSON.parse() 解析 JSON 字串
        let user = JSON.stringify(this.json);
        var newstr = user
@@ -80,23 +80,14 @@ export class CustomerService {
 
   public createcustomer(name,addr,age,tel){
 
-    let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        'name': name,
-        'addr': addr,
-        'age': age,
-        'tel': tel,
-      }
-    };
+    console.log("createcustomer拿到"+name);
+    this.json["body"]["name"]=name;//給值
+    this.json["body"]["addr"]=addr;
+    this.json["body"]["age"]=age;
+    this.json["body"]["tel"]=tel;
 
     // 透過 JSON.parse() 解析 JSON 字串
-    let user = JSON.stringify(userJSON);
+    let user = JSON.stringify(this.json);
     var newstr = user
 
     console.log(
@@ -110,26 +101,18 @@ export class CustomerService {
 
   }
 
-  updata(customerId,name,addr,age,tel){
+  public updata(customerId,name,addr,age,tel){
 
-    let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        "customerId": customerId,
-        'name': name,
-        'addr': addr,
-        'age': age,
-        'tel': tel,
-      }
-    };
+    console.log("updata拿到"+customerId);
+    this.json["body"]["customerId"]=customerId;//給值
+    this.json["body"]["name"]=name;
+    this.json["body"]["addr"]=addr;
+    this.json["body"]["age"]=age;
+    this.json["body"]["tel"]=tel;
+
 
        // 透過 JSON.parse() 解析 JSON 字串
-       let user = JSON.stringify(userJSON);
+       let user = JSON.stringify(this.json);
        var newstr = user
   
        console.log("newstr"+newstr);
@@ -145,20 +128,12 @@ export class CustomerService {
 
   public delet(customerId : String){
 
-    let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        "customerId": customerId
-      }
-    };
+    console.log("delet拿到"+customerId);
+    this.json["body"]["customerId"]=customerId;//給值
 
+    
      // 透過 JSON.parse() 解析 JSON 字串
-     let user = JSON.stringify(userJSON);
+     let user = JSON.stringify(this.json);
      var newstr = user
 
      console.log(
