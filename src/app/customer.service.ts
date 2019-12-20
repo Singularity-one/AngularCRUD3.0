@@ -142,8 +142,7 @@ export class CustomerService {
 
   public login(name: string,tel: string){
 
-    console.log("login拿到"+name+"電話"+tel);
-
+    console.log("delet拿到"+name+"電話"+tel);
     this.json["body"]["name"]=name;//給值
     this.json["body"]["tel"]=tel;
 
@@ -155,8 +154,9 @@ export class CustomerService {
 
      var objJsonArray =JSON.parse(newstr);
 
-     return this.http.post('http://localhost:8080/login',objJsonArray
+    return this.http.post('http://localhost:8080/login',objJsonArray
     ,this.headers);
+
   }
 
 

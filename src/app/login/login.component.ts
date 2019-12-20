@@ -16,15 +16,11 @@ export class LoginComponent implements OnInit {
   @ViewChild('nameInput') nameId: ElementRef;
   @ViewChild('telInput') telId: ElementRef;
 
-  private headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-
-
   name: string;
   tel: string;
   submitted = false;
 
-  //constructor() { }
-  constructor(private router:Router,private http:HttpClient, private customerService: CustomerService) { }
+  constructor(private router:Router,private http:HttpClient,private customerService: CustomerService) { }
 
   ngOnInit() {
   }
