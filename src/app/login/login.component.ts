@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(name: string,tel: string) {
-    console.log("login");
+    console.log("login");  
     this.submitted = true;
-    this.customerService.login(this.nameId.nativeElement.value,this.telId.nativeElement.value).subscribe(
+    this.customerService.login(this.name,this.tel).subscribe(
       res => {
         const returnText = res['body'].returnCode;
         if('0000'=== returnText){
