@@ -11,18 +11,12 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class UpdataComponent implements OnInit {
 
- 
-  //protected scustomeridSQLid2: string[] = [];
-
-
   @ViewChild('customerIdInput') customerIdId: ElementRef;
   @ViewChild('nameInput') nameId: ElementRef;
   @ViewChild('addrInput') addrId: ElementRef;
   @ViewChild('ageInput') ageId: ElementRef;
   @ViewChild('telInput') telId: ElementRef;
 
-  //private headers =new HttpHeaders().append('Conten-Type','application/json');
-  private _headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   customerId: string;
   name: string;
   addr: string;
@@ -65,67 +59,28 @@ export class UpdataComponent implements OnInit {
   }
 
   onSubmit(customerId: string,name: string,addr: string,age: string,tel: string) {
-    console.log("createcustomer");
+    console.log("updatacustomer");
     this.submitted = true;
-    this.updata(this.scustomeridSQLid2.toString(),
+
+    this.customerService.updata(this.scustomeridSQLid2.toString(),
       this.nameId.nativeElement.value,
       this.addrId.nativeElement.value,
       this.ageId.nativeElement.value,
-      this.telId.nativeElement.value
-      );
+      this.telId.nativeElement.value).subscribe(
+      res => {
+       console.log(res);
+       const returnText = res['body'].returnCode;
+        
+       if('0000'=== returnText){
+         console.log("修改成功");
+         this.router.navigate(['find-all']); // <-- 導向FindAllComponent
+        }
+      },errRes =>{
+        console.log(errRes);
+      }
+    );
+
   }
      
-  updata(customerId,name,addr,age,tel){
-    //  let customerIdStr = customerId;
-    //  let nameStr = name;
-    //  let addrStr = addr;
-    //  let ageStr = age;
-    //  let telStr = tel;
-
-     let userJSON = {
-      'header': {
-        'msgId': '1',
-        'txnSeq': '2',
-        'branchId': '3',
-        'clientIp': '4'
-      },
-      'body': {
-        "customerId": customerId,
-        'name': name,
-        'addr': addr,
-        'age': age,
-        'tel': tel,
-      }
-    };
-
-       // 透過 JSON.parse() 解析 JSON 字串
-       let user = JSON.stringify(userJSON);
-       var newstr = user
-  
-       console.log(
-        "newstr"+newstr
-       );
-  
-       var objJsonArray =JSON.parse(newstr);
-
-
-     this.http.post('http://localhost:8080/customer/updata2',objJsonArray
-    ,this._headers).subscribe(
-                 res => {
-                  console.log(res);
-                   if(res['success']){
-                     console.log("success");
-                   }
-                   const returnText = res['body'].returnCode;
-                   if('0000'=== returnText){
-                    console.log("登入成功");
-                    this.router.navigate(['find-all']); // <-- 導向HomeComponent
-                   }
-                 },errRes =>{
-                   console.log(errRes);
-                 }
-               );
-
-  }
 
 }

@@ -59,7 +59,7 @@ export class CustomerService {
     this.messages = [];
   }
 
-  findOne(customerId : String){
+  public findOne(customerId : String){
     
     let userJSON = {
       'header': {
@@ -87,7 +87,7 @@ export class CustomerService {
     ,this.headers)
   }
 
-  createcustomer(name,addr,age,tel){
+  public createcustomer(name,addr,age,tel){
 
     let userJSON = {
       'header': {
@@ -116,6 +116,37 @@ export class CustomerService {
 
     return this.http.post('http://localhost:8080/customer/save2',objJsonArray
     ,this.headers)
+
+  }
+
+  updata(customerId,name,addr,age,tel){
+
+    let userJSON = {
+      'header': {
+        'msgId': '1',
+        'txnSeq': '2',
+        'branchId': '3',
+        'clientIp': '4'
+      },
+      'body': {
+        "customerId": customerId,
+        'name': name,
+        'addr': addr,
+        'age': age,
+        'tel': tel,
+      }
+    };
+
+       // 透過 JSON.parse() 解析 JSON 字串
+       let user = JSON.stringify(userJSON);
+       var newstr = user
+  
+       console.log("newstr"+newstr);
+  
+       var objJsonArray =JSON.parse(newstr);
+
+    return this.http.post('http://localhost:8080/customer/updata2',objJsonArray
+    ,this.headers);
 
   }
 
