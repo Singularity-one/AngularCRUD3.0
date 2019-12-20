@@ -61,7 +61,6 @@ export class CustomerService {
 
   findOne(customerId : String){
     
-    
     let userJSON = {
       'header': {
         'msgId': '1',
