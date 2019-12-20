@@ -83,14 +83,6 @@ export class CheckboxComponent implements OnInit {
     }
   }
 
-
-
- 
-   
-  
-  
-
-
   constructor(private router:Router, private customerService: CustomerService,private http:HttpClient) { }
    
   ngOnInit() {
