@@ -29,7 +29,7 @@ export class FindAllWithAgeComponent implements OnInit {
   get pageNumbers(): number[]{
     console.log("總頁數計算新分頁數"+this.totalPages);   
     var numbers = []; 
-    for (var i = 1; i <= parseInt(this.totalPages); i++) {   //一个个压入页码
+    for (var i = 1; i <= parseInt(this.totalPages); i++) {   //一個個壓入頁碼
       console.log(i);   
       numbers.push(i);
     }
@@ -55,17 +55,7 @@ export class FindAllWithAgeComponent implements OnInit {
 }
 
   ngOnInit() {
-    // this.customerService.getUsers().subscribe(data =>{
-    //   this.customers =data;
-    //   console.log(data);
-    //   const returnText = data['body'].returnCode;
-    //   if('0000'=== returnText){
-    //     console.log("讀入全部資料");
-    //     const body = data['body'];
-    //     this.customers = body.dataList;
-    //    }   
-    //   }
-    // )
+    
     this.getAllByAge();
     console.log("進入這頁面時發生");
   }
