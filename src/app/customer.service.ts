@@ -18,6 +18,7 @@ export class CustomerService {
   addr: String;
   age: String;
   tel: String;
+  newPage:String;
   customers: Customer[];
 
   json: any={
@@ -31,7 +32,8 @@ export class CustomerService {
                   "name": this.name,
                   "addr": this.addr,
                   "age": this.age,
-                  "tel": this.tel     
+                  "tel": this.tel
+                  
                 }
               };
 
@@ -157,6 +159,27 @@ export class CustomerService {
   public getAll(){
     return this.http.post<Customer[]>('http://localhost:8080/customer/page',this.json,this.headers);
   }
+
+  public changePagetoEnd(newPage : String){
+
+    console.log("changePagetoEnd"+newPage);
+    this.json["body"]["newPage"]=newPage;//給值
+
+     // 透過 JSON.parse() 解析 JSON 字串
+     let user = JSON.stringify(this.json);
+     var newstr = user
+
+     console.log("newstr"+newstr);
+
+     var objJsonArray =JSON.parse(newstr);
+
+     return this.http.post('http://localhost:8080/customer/page2',objJsonArray
+    ,this.headers);
+
+  }
+
+  
+
 
   
 

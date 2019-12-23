@@ -88,7 +88,7 @@ export class FindAllWithPageComponent implements OnInit {
     );
     console.log("進入這頁面時發生");
   }
- 
+
 
   changePagetoEnd(newPage: number){
     let userJSON = {
