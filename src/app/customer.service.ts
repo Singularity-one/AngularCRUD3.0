@@ -154,4 +154,9 @@ export class CustomerService {
   }
 
 
+  public getAll(){
+    return this.http.post<Customer[]>('http://localhost:8080/customer/page',this.json,this.headers);
+  }
+
+
 }
