@@ -21,6 +21,10 @@ export class CustomerService {
   newPage:String;
   customers: Customer[];
 
+
+  public productsPerPage =4;
+  public selectedPage=1;
+
   json: any={
               "header": {
                   "msgId": "1",
@@ -177,7 +181,7 @@ export class CustomerService {
     ,this.headers);
 
   }
-
+  
   
 
 
