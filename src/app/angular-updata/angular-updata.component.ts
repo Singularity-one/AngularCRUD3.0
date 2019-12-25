@@ -31,7 +31,7 @@ export class AngularUpdataComponent implements OnInit {
 
   constructor(private router:Router,private http:HttpClient, private customerService: CustomerService,private sanitizer: DomSanitizer) {
     console.log("這是上傳圖片頁面");
-   
+
   }
 
 
