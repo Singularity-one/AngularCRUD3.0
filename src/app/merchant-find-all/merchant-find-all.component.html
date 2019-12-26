@@ -1,3 +1,35 @@
 <p>
-  merchant-find-all works!
+  merchant-find-all works!   
 </p>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Merchant List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>merchantId</th>
+          <th>name</th>
+          <th>addr</th>
+          <th>tel</th>
+          <th>pic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let merchants of merchants ; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{merchants.merchantId}}</td>
+          <td>{{merchants.name}}</td>
+          <td>{{merchants.addr}}</td>
+          <td>{{merchants.tel}}</td>
+          <td><img [src]="'data:image/jpeg;base64,' + merchants.pic" style="display: inline-block; width: 30%;"/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <img [src]="user_photo">看解碼是否正確 -->
