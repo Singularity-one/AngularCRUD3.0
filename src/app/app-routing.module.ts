@@ -10,6 +10,7 @@ import { FindAllWithPageComponent } from './find-all-with-page/find-all-with-pag
 import { FindAllWithAgeComponent } from './find-all-with-age/find-all-with-age.component';
 import { AngularUpdataComponent } from './angular-updata/angular-updata.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'find-all-with-page',component: FindAllWithPageComponent},
   {path: 'find-all-with-age',component: FindAllWithAgeComponent},
   {path: 'angular-updata',component: AngularUpdataComponent},
-  {path: 'checkbox',component: CheckboxComponent}
+  {path: 'checkbox',component: CheckboxComponent},
+  {path: 'merchant-find-all',component: MerchantFindAllComponent}
 
 ];
 
