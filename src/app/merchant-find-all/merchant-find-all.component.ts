@@ -31,7 +31,7 @@ export class MerchantFindAllComponent implements OnInit {
        for(i=0;i<this.merchants.length;i++){
         var j=i.toString();
         //this.merchants[i]["pic"] = window.atob(this.merchants[i]["pic"]);//解碼
-        this.user_photo = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +window.atob(this.merchants[i]["pic"]));//解碼
+        //this.user_photo = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +window.atob(this.merchants[i]["pic"]));//解碼
 
         this.merchants[i]["pic"] = window.atob(this.merchants[i]["pic"]);//解碼64存回物件陣列
         
