@@ -181,6 +181,28 @@ export class CustomerService {
     ,this.headers);
 
   }
+
+
+  public select(customerId,name,addr,age,tel){
+
+    console.log("select拿到"+customerId);
+    this.json["body"]["customerId"]=customerId.trim();//給值和去除空白
+    this.json["body"]["name"]=name.trim();
+    this.json["body"]["addr"]=addr.trim();
+    this.json["body"]["age"]=age.trim();
+    this.json["body"]["tel"]=tel.trim();
+
+    // 透過 JSON.parse() 解析 JSON 字串
+    let user = JSON.stringify(this.json);
+    var newstr = user
+  
+    console.log("newstr"+newstr);
+  
+    var objJsonArray =JSON.parse(newstr);
+
+    return this.http.post('http://localhost:8080/customer/findBySpecificColumn',objJsonArray,this.headers);
+
+  }
   
 
 
