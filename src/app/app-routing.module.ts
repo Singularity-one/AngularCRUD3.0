@@ -11,6 +11,7 @@ import { FindAllWithAgeComponent } from './find-all-with-age/find-all-with-age.c
 import { AngularUpdataComponent } from './angular-updata/angular-updata.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
+import { SelectCustomerComponent } from './select-customer/select-customer.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'find-all-with-age',component: FindAllWithAgeComponent},
   {path: 'angular-updata',component: AngularUpdataComponent},
   {path: 'checkbox',component: CheckboxComponent},
-  {path: 'merchant-find-all',component: MerchantFindAllComponent}
+  {path: 'merchant-find-all',component: MerchantFindAllComponent},
+  {path: 'select-customer',component: SelectCustomerComponent}
 
 ];
 

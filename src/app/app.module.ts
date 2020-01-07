@@ -20,6 +20,7 @@ import { FindAllWithAgeComponent } from './find-all-with-age/find-all-with-age.c
 import { AngularUpdataComponent } from './angular-updata/angular-updata.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
+import { SelectCustomerComponent } from './select-customer/select-customer.component';
 
 
 
@@ -37,7 +38,8 @@ import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.
     FindAllWithAgeComponent,
     AngularUpdataComponent,
     CheckboxComponent,
-    MerchantFindAllComponent
+    MerchantFindAllComponent,
+    SelectCustomerComponent
    
   ],
   imports: [
