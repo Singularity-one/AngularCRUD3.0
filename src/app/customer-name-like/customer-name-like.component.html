@@ -15,7 +15,7 @@
           You must enter a Customer Name
         </li>
         <li *ngIf="name.errors.pattern">
-          Customer Name 只能包含字母和空格
+          Customer Name 只能包含字母
         </li>
         <li *ngIf="name.errors.minlength">
           Customer Name 只最少{{name.errors.minlength.requiredLength}} 字
