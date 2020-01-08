@@ -12,6 +12,8 @@ import { AngularUpdataComponent } from './angular-updata/angular-updata.componen
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
 import { SelectCustomerComponent } from './select-customer/select-customer.component';
+import { CustomerNameLikeComponent } from './customer-name-like/customer-name-like.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path: 'angular-updata',component: AngularUpdataComponent},
   {path: 'checkbox',component: CheckboxComponent},
   {path: 'merchant-find-all',component: MerchantFindAllComponent},
-  {path: 'select-customer',component: SelectCustomerComponent}
+  {path: 'select-customer',component: SelectCustomerComponent},
+  {path: 'customer-name-like',component: CustomerNameLikeComponent}
 
 ];
 

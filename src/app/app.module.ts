@@ -21,6 +21,7 @@ import { AngularUpdataComponent } from './angular-updata/angular-updata.componen
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
 import { SelectCustomerComponent } from './select-customer/select-customer.component';
+import { CustomerNameLikeComponent } from './customer-name-like/customer-name-like.component';
 
 
 
@@ -39,7 +40,8 @@ import { SelectCustomerComponent } from './select-customer/select-customer.compo
     AngularUpdataComponent,
     CheckboxComponent,
     MerchantFindAllComponent,
-    SelectCustomerComponent
+    SelectCustomerComponent,
+    CustomerNameLikeComponent
    
   ],
   imports: [
