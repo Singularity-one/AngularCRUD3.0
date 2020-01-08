@@ -1,3 +1,60 @@
-<p>
-  customer-name-like works!
-</p>
+<h3>Customer Name Like</h3>
+<div style="width: 400px;">
+  <form novalidate (ngSubmit)="onSubmit(newCustomer)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" 
+                         name="name"              
+                         [(ngModel)]="newCustomer.name" 
+                         #name="ngModel"
+                         required 
+                         minlength="1"
+                         pattern="^[A-Za-z]+$">
+      <ul class="text-danger list-unstyled" *ngIf="name.dirty && name.invalid">
+        <li *ngIf="name.errors.required">
+          You must enter a Customer Name
+        </li>
+        <li *ngIf="name.errors.pattern">
+          Customer Name 只能包含字母和空格
+        </li>
+        <li *ngIf="name.errors.minlength">
+          Customer Name 只最少{{name.errors.minlength.requiredLength}} 字
+        </li>
+      </ul>
+    </div>
+    <div>Data:{{jsonCustomer}}</div>
+    <button type="submit" class="btn btn-success">送出</button>
+  </form>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Customer List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>customerId</th>
+          <th>name</th>
+          <th>addr</th>
+          <th>age</th>
+          <th>tel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customers of customers ; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{customers.customerId}}</td>
+          <td>{{customers.name}}</td>
+          <td>{{customers.addr}}</td>
+          <td>{{customers.age}}</td>
+          <td>{{customers.tel}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -203,6 +203,25 @@ export class CustomerService {
     return this.http.post('http://localhost:8080/customer/findBySpecificColumn',objJsonArray,this.headers);
 
   }
+
+
+  public nameLike(value: string){
+
+    console.log("select拿到"+value);
+   
+    this.json["body"]["name"]=value; //給值
+    
+    // 透過 JSON.parse() 解析 JSON 字串
+    let user = JSON.stringify(this.json);
+    var newstr = user
+  
+    console.log("newstr"+newstr);
+  
+    var objJsonArray =JSON.parse(newstr);
+
+    return this.http.post('http://localhost:8080/customer/findByNameLike',objJsonArray,this.headers);
+
+  }
   
 
 
