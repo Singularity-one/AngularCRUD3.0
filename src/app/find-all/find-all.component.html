@@ -31,3 +31,67 @@
       </table>
     </div>
   </div>
+
+
+<div class="m-2">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" [(ngModel)]="showTable" />
+            Show Table
+        </label>
+    </div>
+
+    <ng-template [paIf]="showTable">
+
+      <div>
+        <label>Addr Filter:</label>
+        <select [(ngModel)]="addrFilter">
+          <option>上海</option>
+          <option>武漢</option>
+          <option>合肥</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Addr Filter:</label>
+        <select [(ngModel)]="addrFilter">
+          <option *ngFor="let customers of customers"
+          [ngValue]="customers.addr
+          ">
+          {{customers.addr}}
+          </option>
+        </select>
+      </div>
+
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>customerId</th>
+              <th>name</th>
+              <th>addr</th>
+              <th>age</th>
+              <th>tel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *paFor="let customers of customers | filter:addrFilter;
+                        let i=index; let odd=odd; let even=even"
+                        [class.bg-light]="odd" [class.bg-waring]="even">
+              <td>{{ i + 1 }}</td>
+              <td>{{customers.customerId}}</td>
+              <td>{{customers.name}}</td>
+              <td>{{customers.addr}}</td>
+              <td>{{customers.age}}</td>
+              <td>{{customers.tel}}</td>
+              <td><button (click)="deleteCustomer(customers.customerId)" class="btn btn-danger">Delete</button>
+                <button (click)="updateCustomer(customers.customerId)" class="btn btn-info" style="margin-left: 10px" >Update</button>
+                <button (click)="customerDetails(customers.customerId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </ng-template>
+
+  </div>
