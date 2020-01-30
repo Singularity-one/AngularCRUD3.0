@@ -25,6 +25,7 @@ import { CustomerNameLikeComponent } from './customer-name-like/customer-name-li
 import { PaStructureDirective } from './find-all/structure.directive';
 import { PaAddrFilterPipe } from './find-all/addrFilter.pipe';
 import { PaIteratorDirective } from './find-all/iterator.directive';
+import { CreatemerchantComponent } from './createmerchant/createmerchant.component';
 
 
 
@@ -48,7 +49,7 @@ import { PaIteratorDirective } from './find-all/iterator.directive';
     CustomerNameLikeComponent,
     PaStructureDirective, //ch16
     PaIteratorDirective,//ch16p260
-    PaAddrFilterPipe//ch18
+    PaAddrFilterPipe, CreatemerchantComponent//ch18
    
   ],
   imports: [
