@@ -1,3 +1,45 @@
 <p>
   createmerchant works!
 </p>
+<h3>Create Merchant</h3>
+<div style="width: 400px;">
+  <form novalidate (ngSubmit)="onSubmit(newMerchant)">
+    <div class="form-group">
+      <label for="name">Name(WILLIE)</label>
+      <input type="text" class="form-control" 
+      name="name"              
+      [(ngModel)]="newMerchant.name" 
+      #name="ngModel"
+      required 
+      minlength="2">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Addr(地球)</label>
+      <input type="text" class="form-control" 
+      name="addr"              
+      [(ngModel)]="newMerchant.addr" 
+      #addr="ngModel"
+      required 
+      minlength="2">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Tel(XXXX)</label>
+      <input type="text" class="form-control" 
+      name="tel"              
+      [(ngModel)]="newMerchant.tel" 
+      #tel="ngModel"
+      required 
+      minlength="2">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Pic</label>
+      <input type="text" class="form-control" 
+      name="pic" type="file" (change)="upload($event)">
+    </div>
+    Data:{{jsonMerchant}}
+    <button type="submit" class="btn btn-success">送出</button>
+  </form>
+</div>
