@@ -13,6 +13,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MerchantFindAllComponent } from './merchant-find-all/merchant-find-all.component';
 import { SelectCustomerComponent } from './select-customer/select-customer.component';
 import { CustomerNameLikeComponent } from './customer-name-like/customer-name-like.component';
+import { CreatemerchantComponent } from './createmerchant/createmerchant.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'checkbox',component: CheckboxComponent},
   {path: 'merchant-find-all',component: MerchantFindAllComponent},
   {path: 'select-customer',component: SelectCustomerComponent},
-  {path: 'customer-name-like',component: CustomerNameLikeComponent}
+  {path: 'customer-name-like',component: CustomerNameLikeComponent},
+  {path: 'createmerchant',component: CreatemerchantComponent}
 
 ];
 
