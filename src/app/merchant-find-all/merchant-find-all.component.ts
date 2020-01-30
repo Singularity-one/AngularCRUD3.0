@@ -14,6 +14,16 @@ export class MerchantFindAllComponent implements OnInit {
   merchants: Merchant[];
   imgdata:string;
 
+  merchantId: string;
+  name: string;
+  addr: string;
+  tel: string;
+  pic: string;
+  submitted = false;
+
+  image;
+  updateMerchant: Merchant=new Merchant();
+
   constructor(private merchantService: MerchantService,private sanitizer: DomSanitizer) { }
 
   ngOnInit() { 
@@ -42,5 +52,49 @@ export class MerchantFindAllComponent implements OnInit {
     })
      console.log("進入這頁面時發生");
   }
+
+  updateMerchants(merchantId: string,name: string,addr: string,tel: string){
+    console.log("updateMerchants");
+    console.log("umerchantId:"+merchantId);
+    this.updateMerchant.merchantId=merchantId
+    this.updateMerchant.name=name
+    this.updateMerchant.addr=addr
+    this.updateMerchant.tel=tel
+    this.updateMerchant.pic=this.pic
+    this.merchantService.updateMerchants(this.updateMerchant).subscribe(
+      res => {
+       console.log(res);
+       const returnText = res['body'].returnCode;
+        
+       if('0000'=== returnText){
+         console.log("新增成功");
+         const body = res['body'];
+         this.ngOnInit(); 
+        }
+      },errRes =>{
+        console.log(errRes);
+      }
+    );//傳給merchantService
+
+  }
+
+  upload($event) : void {
+    console.log("路徑"+$event.target.value);
+    console.log(typeof($event.target.files[0]));//型別
+    this.readThis($event.target);
+
+  }
+
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    var myReader:FileReader = new FileReader();
+  
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;//轉64編碼
+      this.pic=this.image.replace("data:image/png;base64,", "");//去除前面data:image/png;base64,
+    }
+    myReader.readAsDataURL(file);
+  }
+
 
 }
