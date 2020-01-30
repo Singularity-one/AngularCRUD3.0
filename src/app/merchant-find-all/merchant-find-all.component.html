@@ -27,7 +27,14 @@
           <td>{{merchants.tel}}</td>
           <td>
             <!-- 如果字串長度小於30代表只有unsafe:data:image/jpeg;base64, -->
-            <div *ngIf="merchants.pic.length<30; else anotherWord"></div>
+            <div *ngIf="merchants.pic.length<30; else anotherWord">
+              <div class="form-group">
+                <label for="name">Pic</label>
+                <input type="text" class="form-control" 
+                name="pic" type="file" (change)="upload($event)">
+              <button (click)="updateMerchants(merchants.merchantId,merchants.name,merchants.addr,merchants.tel)" class="btn btn-info" style="margin-left: 10px" >送出</button>
+              </div>
+            </div>
             <ng-template #anotherWord>
             <img [src]="'data:image/jpeg;base64,' + merchants.pic" style="display: inline-block; width: 30%;"/>
             </ng-template>
